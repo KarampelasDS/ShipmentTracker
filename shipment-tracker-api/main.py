@@ -13,7 +13,7 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-app.add_middleware(CORSMiddleware,allow_origins=["https://localhost:5173"],allow_methods=["*"],allow_headers=["*"])
+app.add_middleware(CORSMiddleware,allow_origins=["http://localhost:5173"],allow_methods=["*"],allow_headers=["*"])
 
 
 @app.post("/shipments", response_model=schemas.ShipmentOut)

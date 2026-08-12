@@ -2,6 +2,7 @@ import uuid
 from sqlalchemy import Column, String, ForeignKey, DateTime
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.sql import func
+from sqlalchemy.orm import relationship
 from database import Base
 
 class Shipment(Base):
@@ -15,6 +16,9 @@ class Shipment(Base):
     carrier = Column(String, nullable=False)
     created_at = Column(DateTime, server_default=func.now())
     updated_at = Column(DateTime, server_default=func.now(), onupdate=func.now())
+
+    events = relationship("StatusEvent", order_by="StatusEvent.occurred_at", cascade="all, delete-orphan")
+
 
 
 class StatusEvent(Base):
