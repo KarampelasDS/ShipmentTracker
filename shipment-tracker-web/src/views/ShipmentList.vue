@@ -54,7 +54,9 @@ function goToShipment(id) {
             <td>{{ shipment.recipient_name }}</td>
             <td>{{ shipment.destination_country }}</td>
             <td>
-              <span class="badge">{{ shipment.status }}</span>
+              <span class="badge" :data-status="shipment.status">{{
+                shipment.status
+              }}</span>
             </td>
           </tr>
         </tbody>

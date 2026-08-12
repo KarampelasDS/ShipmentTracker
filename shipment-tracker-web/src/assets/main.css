@@ -1,4 +1,4 @@
-@import './base.css';
+@import "./base.css";
 
 #app {
   min-height: 100vh;
@@ -6,7 +6,6 @@
 
 /* ---- App shell ---- */
 .app-header {
-  border-bottom: 1px solid var(--border);
   background: var(--surface);
 }
 
@@ -21,11 +20,12 @@
 }
 
 .app-header__title {
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--text);
   text-decoration: none;
+  color: #fff;
 }
 
 .app-nav {
@@ -37,16 +37,16 @@
 .app-nav__link {
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--text-muted);
+  color: #fff;
   text-decoration: none;
 }
 
 .app-nav__link:hover {
-  color: var(--text);
+  color: var(--surface-hover);
 }
 
 .app-nav__link.router-link-exact-active {
-  color: var(--text);
+  color: #fff;
 }
 
 .app-main {
@@ -89,6 +89,7 @@ h2 {
 .field-label {
   color: var(--text-muted);
   font-weight: 500;
+  border-bottom: 0px !important;
 }
 
 /* ---- Buttons & links ---- */
@@ -101,15 +102,15 @@ h2 {
   line-height: 1;
   padding: 9px 14px;
   border-radius: var(--radius);
-  border: 1px solid var(--accent);
-  background: var(--accent);
-  color: var(--accent-contrast);
+  border: 0px;
+  background: #fff;
+  color: var(--text);
   cursor: pointer;
   text-decoration: none;
 }
 
 .btn:hover {
-  background: var(--accent-hover);
+  background: var(--surface-hover);
   border-color: var(--accent-hover);
 }
 
@@ -168,10 +169,10 @@ table {
 thead th {
   text-align: left;
   font-weight: 500;
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--text-muted);
+  color: #fff;
   background: var(--surface-muted);
   padding: 10px 16px;
   border-bottom: 1px solid var(--border);
@@ -180,23 +181,19 @@ thead th {
 tbody td {
   padding: 12px 16px;
   border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
 }
 
 tbody tr:last-child td {
   border-bottom: none;
 }
 
-tbody tr[role='button'] {
+tbody tr[role="button"] {
   cursor: pointer;
 }
 
-tbody tr[role='button']:hover {
-  background: var(--surface-muted);
-}
-
-.mono {
-  font-family: ui-monospace, 'SFMono-Regular', 'Cascadia Code', Menlo, Consolas, monospace;
-  font-size: 0.9em;
+tbody tr[role="button"]:hover {
+  background: var(--surface-hover);
 }
 
 /* ---- Status badge (neutral, no color-coding) ---- */
@@ -213,6 +210,37 @@ tbody tr[role='button']:hover {
   white-space: nowrap;
 }
 
+.badge[data-status="created"] {
+  background: #f3f4f6;
+  color: #374151;
+  border-color: #d1d5db;
+}
+.badge[data-status="picked_up"] {
+  background: #eff6ff;
+  color: #1e40af;
+  border-color: #bfdbfe;
+}
+.badge[data-status="in_transit"] {
+  background: #eef2ff;
+  color: #3730a3;
+  border-color: #c7d2fe;
+}
+.badge[data-status="out_for_delivery"] {
+  background: #fffbeb;
+  color: #92400e;
+  border-color: #fde68a;
+}
+.badge[data-status="delivered"] {
+  background: #ecfdf5;
+  color: #065f46;
+  border-color: #a7f3d0;
+}
+.badge[data-status="exception"] {
+  background: #fef2f2;
+  color: #991b1b;
+  border-color: #fecaca;
+}
+
 /* ---- Forms ---- */
 .form {
   display: flex;
@@ -227,16 +255,15 @@ tbody tr[role='button']:hover {
 }
 
 label {
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 500;
-  color: var(--text-muted);
+  color: #fff;
 }
 
 input,
 select {
   font: inherit;
   color: var(--text);
-  background: var(--surface);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius);
   padding: 9px 11px;
@@ -252,9 +279,14 @@ select:focus {
 /* ---- Detail layout ---- */
 .detail-grid {
   display: grid;
-  grid-template-columns: 130px 1fr;
-  gap: 8px 16px;
+  grid-template-columns: 100px 1fr;
+  gap: 8px 0px;
   font-size: 0.925rem;
+}
+
+.detail-grid span {
+  border-bottom: 1px dotted #fff;
+  color: #fff;
 }
 
 .section {

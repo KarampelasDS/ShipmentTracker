@@ -5,7 +5,8 @@ import router from "./router";
 import "./assets/main.css";
 import { OhVueIcon, addIcons } from "oh-vue-icons";
 import { BiArrowLeftCircleFill } from "oh-vue-icons/icons";
-addIcons(BiArrowLeftCircleFill);
+import { RiMailSendFill } from "oh-vue-icons/icons";
+addIcons(BiArrowLeftCircleFill, RiMailSendFill);
 
 const app = createApp(App);
 app.use(createPinia());

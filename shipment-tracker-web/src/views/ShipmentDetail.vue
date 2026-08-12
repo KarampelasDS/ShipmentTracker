@@ -41,7 +41,9 @@ async function handleAddEvent() {
     <div v-else-if="store.currentShipment">
       <div class="page-head" style="margin-top: 16px">
         <h1 class="mono">{{ store.currentShipment.tracking_number }}</h1>
-        <span class="badge">{{ store.currentShipment.status }}</span>
+        <span class="badge" :data-status="store.currentShipment.status">{{
+          store.currentShipment.status
+        }}</span>
       </div>
 
       <div class="card">
@@ -59,7 +61,9 @@ async function handleAddEvent() {
         <h2>Status history</h2>
         <ul v-if="store.currentShipment.events.length" class="timeline">
           <li v-for="event in store.currentShipment.events" :key="event.id">
-            <span class="badge">{{ event.status }}</span>
+            <span class="badge" :data-status="event.status">{{
+              event.status
+            }}</span>
             <span class="timeline__time">{{
               formatTime(event.occurred_at)
             }}</span>
